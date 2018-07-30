@@ -1,4 +1,4 @@
-package com.entities;
+package com.spring.bean;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -26,6 +26,9 @@ public class Proof implements Serializable{
 	@SequenceGenerator(sequenceName = "proof_seq", allocationSize = 1, name = "PROOF_SEQ")
 	Long id;
 	
+	private String erpId;
+	private String misId;
+	private String misRecordId;
 	private String proofVersionID;
 	private String fileUploadID;
 	private String Status ;
@@ -42,6 +45,24 @@ public class Proof implements Serializable{
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getErpId() {
+		return erpId;
+	}
+	public void setErpId(String erpId) {
+		this.erpId = erpId;
+	}
+	public String getMisId() {
+		return misId;
+	}
+	public void setMisId(String misId) {
+		this.misId = misId;
+	}
+	public String getMisRecordId() {
+		return misRecordId;
+	}
+	public void setMisRecordId(String misRecordId) {
+		this.misRecordId = misRecordId;
 	}
 	public String getProofVersionID() {
 		return proofVersionID;
