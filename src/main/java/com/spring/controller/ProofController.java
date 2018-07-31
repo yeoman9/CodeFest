@@ -28,7 +28,7 @@ public class ProofController {
 	ProofService proofService;
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Proof> getProofById(@PathVariable("id") int id) {
+    public ResponseEntity<Proof> getProofById(@PathVariable("id") long id) {
         System.out.println("Fetching Proof with id " + id);
         Proof proof = proofService.findById(id);
         if (proof == null) {
@@ -66,7 +66,7 @@ public class ProofController {
 	}
 	
 	@DeleteMapping(value="/{id}", headers ="Accept=application/json")
-	public ResponseEntity<Proof> deleteProof(@PathVariable("id") int id){
+	public ResponseEntity<Proof> deleteProof(@PathVariable("id") long id){
 		Proof proof = proofService.findById(id);
 		if (proof == null) {
 			return new ResponseEntity<Proof>(HttpStatus.NOT_FOUND);
@@ -76,7 +76,7 @@ public class ProofController {
 	}
 	
 	@PatchMapping(value="/{id}", headers="Accept=application/json")
-	public ResponseEntity<Proof> updateProofPartially(@PathVariable("id") int id, @RequestBody Proof currentProof){
+	public ResponseEntity<Proof> updateProofPartially(@PathVariable("id") long id, @RequestBody Proof currentProof){
 		Proof proof = proofService.findById(id);
 		if(proof ==null){
 			return new ResponseEntity<Proof>(HttpStatus.NOT_FOUND);

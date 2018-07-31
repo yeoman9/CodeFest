@@ -35,8 +35,9 @@ public class Proof implements Serializable{
 	private String proofDescription;
 	private Integer notes;
 	@Column(name = "REQUESTED_BY")
-    private Date requestedBy;
+    private String requestedBy;
 	private String approver;
+	
 	@Column(name = "APPROVED_DATE")
     private Date approvedDate;
 	
@@ -94,10 +95,10 @@ public class Proof implements Serializable{
 	public void setNotes(Integer notes) {
 		this.notes = notes;
 	}
-	public Date getRequestedBy() {
+	public String getRequestedBy() {
 		return requestedBy;
 	}
-	public void setRequestedBy(Date requestedBy) {
+	public void setRequestedBy(String requestedBy) {
 		this.requestedBy = requestedBy;
 	}
 	public String getApprover() {

@@ -21,7 +21,7 @@ public class ProofServiceImp implements ProofService {
 		return proofDao.getProof();
 	}
 
-	public Proof findById(int id) {
+	public Proof findById(long id) {
 		// TODO Auto-generated method stub
 		return proofDao.findById(id);
 	}
@@ -47,12 +47,7 @@ public class ProofServiceImp implements ProofService {
 		return proofDao.update(proof, id);
 	}
 
-	@Override
-	public Proof findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	
 
 	

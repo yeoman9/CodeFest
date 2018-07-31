@@ -6,8 +6,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.spring.bean.Proof;
+
 @Repository
 public class ProofDaoImp implements ProofDao{
 	@Autowired
@@ -27,14 +27,14 @@ public class ProofDaoImp implements ProofDao{
 		return list;
 	}
 
-	public Proof findById(int id) {
+	public Proof findById(long id) {
 		// TODO Auto-generated method stub
 		 Session session = sessionFactory.getCurrentSession();
 		Proof proof=(Proof) session.get(Proof.class,id);
 		return proof;
 	}
 
-	public Proof update(Proof val, int id) {
+	public Proof update(Proof val, long id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Proof proof =(Proof)session.get(Proof.class, id);
@@ -44,7 +44,7 @@ public class ProofDaoImp implements ProofDao{
 		return proof;
 	}
 
-	public void delete(int id) {
+	public void delete(long id) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
 		Proof proof = findById(id);
@@ -58,22 +58,6 @@ public class ProofDaoImp implements ProofDao{
 		return proof;
 	}
 
-	@Override
-	public Proof findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Proof update(Proof proof, long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
