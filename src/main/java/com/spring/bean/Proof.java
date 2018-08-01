@@ -26,19 +26,27 @@ public class Proof implements Serializable{
 	@SequenceGenerator(sequenceName = "proof_seq", allocationSize = 1, name = "PROOF_SEQ")
 	Long id;
 	
+	@Column(name = "ERPID")
 	private String erpId;
+	
+	@Column(name = "MISID")
 	private String misId;
+	@Column(name = "MISRECORDID")
 	private String misRecordId;
+	@Column(name = "PROOFVERSIONID")
 	private String proofVersionID;
+	@Column(name = "FILEUPLOADID")
 	private String fileUploadID;
-	private String Status ;
+	
+	private String status ;
+	@Column(name = "PROOFDESCRIPTION")
 	private String proofDescription;
-	private Integer notes;
-	@Column(name = "REQUESTED_BY")
+	private String notes;
+	@Column(name = "REQUESTEDBY")
     private String requestedBy;
 	private String approver;
 	
-	@Column(name = "APPROVED_DATE")
+	@Column(name = "APPROVEDDATE")
     private Date approvedDate;
 	
 	public Long getId() {
@@ -78,10 +86,10 @@ public class Proof implements Serializable{
 		this.fileUploadID = fileUploadID;
 	}
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 	public void setStatus(String status) {
-		Status = status;
+		status = status;
 	}
 	public String getProofDescription() {
 		return proofDescription;
@@ -89,10 +97,10 @@ public class Proof implements Serializable{
 	public void setProofDescription(String proofDescription) {
 		this.proofDescription = proofDescription;
 	}
-	public Integer getNotes() {
+	public String getNotes() {
 		return notes;
 	}
-	public void setNotes(Integer notes) {
+	public void setNotes(String notes) {
 		this.notes = notes;
 	}
 	public String getRequestedBy() {
