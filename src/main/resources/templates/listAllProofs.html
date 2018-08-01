@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>ID</th>
+			<th>ERP_ID</th>
+			<th>MIS_ID</th>
+			<th>MIS_RECORD_ID</th>
+			<th>PROOF_VERSION_ID</th>
+			<th>FILE_UPLOAD_ID</th>
+			<th>STATUS</th>
+			<th>PROOF_DESC</th>
+			<th>REQUESTED_BY</th>
+			<th>APPROVER</th>
+			<th>APPROVED_DATE</th>
+		</tr>
+		<tr th:each="proof : ${proofs}">
+			<td th:text="${proof.id}"></td>
+			<td th:text="${proof.erpId}"></td>
+			<td th:text="${proof.misId}"></td>
+			<td th:text="${proof.misRecordId}"></td>
+			<td th:text="${proof.proofVersionID}"></td>
+			<td th:text="${proof.fileUploadID}"></td>
+			<td th:text="${proof.status}"></td>
+			<td th:text="${proof.proofDescription}"></td>
+			<td th:text="${proof.requestedBy}"></td>
+			<td th:text="${proof.approver}"></td>
+			<td th:text="${proof.approvedDate}"></td>
+		</tr>
+	</table>
+</body>
+</html>
