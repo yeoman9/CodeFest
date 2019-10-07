@@ -11,5 +11,6 @@ public interface UserDao {
 	public User update(User user, long id);
 	public User updateCountry(User user, long id);
 	public void delete(long id);
+	public User findByMobileNumberAndPassword(String mobileNumber,String password);
 	
 }

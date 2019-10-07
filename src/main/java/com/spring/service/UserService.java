@@ -11,4 +11,5 @@ public interface UserService {
 	public User update(User user, long id);
 	public void deleteUserById(long id);
 	public User updatePartially(User user, long id);
+	public User findByMobileNumberAndPassword(String mobileNumber,String password);
 }

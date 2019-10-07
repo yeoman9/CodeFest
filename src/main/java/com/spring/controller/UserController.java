@@ -46,7 +46,7 @@ public class UserController {
 //        return new ResponseEntity<User>(user, HttpStatus.OK);
 //    }
     
-	 @PostMapping(value="/create",headers="Accept=application/json")
+	@PostMapping(value = "/create", headers = "Accept=application/json")
 	public ResponseEntity<String> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating User " + user.getUsername());
 
@@ -55,15 +55,31 @@ public class UserController {
 			return new ResponseEntity<String>("Password and PasswordConfirmed does'not match.", headers,
 					HttpStatus.UNPROCESSABLE_ENTITY);
 		}
-		
+
 		Role role = roleService.findById(1);
 		Set<Role> roles = new HashSet<>();
 		roles.add(role);
 		user.setRoles(roles);
-		
+
 		userService.createUser(user);
 
 		return new ResponseEntity<String>("Sucssessfully created.", headers, HttpStatus.CREATED);
+	}
+	
+	@PostMapping(value = "/login", headers = "Accept=application/json")
+	public ResponseEntity<User> loginUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+		System.out.println("Try Login User " + user.getUsername());
+
+		HttpHeaders headers = new HttpHeaders();
+		
+		User foundUser = userService.findByMobileNumberAndPassword(user.getMobileNumber(),user.getPassword());
+		if(null !=foundUser ){
+			return new ResponseEntity<User>(foundUser, headers, HttpStatus.OK);
+		}
+		else{
+			return new ResponseEntity<User>(foundUser, headers, HttpStatus.UNPROCESSABLE_ENTITY);
+		}
+		
 	}
 
 //	 @GetMapping(value="/get", headers="Accept=application/json")

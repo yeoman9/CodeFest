@@ -47,6 +47,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.update(user, id);
 	}
 
+	@Override
+	public User findByMobileNumberAndPassword(String mobileNumber,String password) {
+		// TODO Auto-generated method stub
+		return userDao.findByMobileNumberAndPassword(mobileNumber,password);
+	}
+
 	
 	
 
